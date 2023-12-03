@@ -1,0 +1,23 @@
+:root {
+    --bg-color: #202124;
+    --text-color: #efefef;
+    --text-color-muted: #aaaaaa;
+    --highlight-color: #35363a;
+    --lowlight-color: #161719;
+    --primary-color: #bb86fd;
+    --primary-color-hover: #9561cf;
+    --input-text-color: #ffffff;
+    --input-bg-color-focus: #000000;
+}
+
+html {
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    font-weight: 200;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+}
