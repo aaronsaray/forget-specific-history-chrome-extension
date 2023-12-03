@@ -8,6 +8,8 @@
     --primary-color-hover: #9561cf;
     --input-text-color: #ffffff;
     --input-bg-color-focus: #000000;
+    --success-bg-color: #02dac6;
+    --success-text-color: #000000;
 }
 
 html {

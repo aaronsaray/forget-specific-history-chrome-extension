@@ -57,6 +57,7 @@
         fieldset>div {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 1rem;
         }
 
@@ -99,6 +100,15 @@
 
         button:hover {
             background-color: var(--primary-color-hover);
+        }
+
+        .success {
+            opacity: 0;
+            transition: opacity 0.5s;
+            padding: 0.2rem;
+            background-color: var(--success-bg-color);
+            color: var(--success-text-color);
+            font-weight: bold;
         }
     </style>
 </head>
@@ -146,6 +156,7 @@
     <template id="domain-action-row">
         <div>
             <a href="#">add another</a>
+            <div class="success">Saved!</div>
             <button type="submit">Save</button>
         </div>
     </template>
