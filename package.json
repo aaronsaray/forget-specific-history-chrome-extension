@@ -1,15 +1,21 @@
 {
-  "name": "forgetspecifichistory",
+  "name": "forget-specific-history",
   "version": "1.0.0",
-  "description": "The ForgetSpecificHistory allows you to specify specific URLs or patterns to remove from your history and never save.",
-  "main": "index.js",
+  "type": "module",
+  "description": "The Forget Specific History allows you to specify specific URLs or patterns to remove from your history and never save.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Aaron Saray <aaron@aaronsaray.com>",
+  "license": "MIT",
   "devDependencies": {
-    "chrome-types": "^0.1.246"
+    "chrome-types": "^0.1.246",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0"
   }
 }
