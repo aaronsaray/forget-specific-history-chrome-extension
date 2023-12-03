@@ -1,0 +1,15 @@
+{
+  "name": "forgetspecifichistory",
+  "version": "1.0.0",
+  "description": "The ForgetSpecificHistory allows you to specify specific URLs or patterns to remove from your history and never save.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chrome-types": "^0.1.246"
+  }
+}
