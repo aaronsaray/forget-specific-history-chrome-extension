@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Specific History Options</title>
+    <style>
+        :root {
+            --bg-color: #202124;
+            --text-color: #efefef;
+            --text-color-muted: #aaaaaa;
+            --highlight-color: #35363a;
+            --lowlight-color: #161719;
+            --primary-color: #bb86fd;
+            --primary-color-hover: #9561cf;
+            --input-text-color: #ffffff;
+            --input-bg-color-focus: #000000;
+        }
+
+        html {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: sans-serif;
+            font-weight: 200;
+        }
+
+        body {
+            margin: 0;
+            padding: 1rem;
+        }
+
+        h1 {
+            font-weight: 300;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        details {
+            margin-bottom: 2rem;
+            color: var(--text-color-muted);
+        }
+
+        summary {
+            cursor: pointer;
+        }
+
+        caption {
+            font-weight: 300;
+            padding: 0.5rem 0.2rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid var(--highlight-color);
+            min-width: 600px;
+        }
+
+        td,
+        th {
+            padding: 0.3rem 0.5rem;
+            text-align: left;
+            border: 1px solid var(--highlight-color);
+        }
+
+        th {
+            background-color: var(--lowlight-color);
+        }
+
+        form {
+            max-width: 600px;
+        }
+
+        fieldset {
+            border: none;
+            padding: 0;
+        }
+
+        form>div,
+        fieldset>div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 100%;
+            background-color: var(--lowlight-color);
+            border: 1px solid var(--highlight-color);
+            padding: 0.3rem 0.5rem;
+            color: var(--input-text-color);
+        }
+
+        input:focus {
+            outline: none;
+            background-color: var(--input-bg-color-focus);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--primary-color-hover);
+        }
+
+        .remove-row {
+            margin-left: 0.5rem;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            border: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            border-radius: 0.1rem;
+            padding: 0.4rem 0.7rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--primary-color-hover);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Forget Specific History Options</h1>
+    <p>
+        In the form below, add the domains of websites you'd like to not be stored in history.
+    </p>
+    <details>
+        <summary>More details...</summary>
+        <p>
+            Use only the domain name and extension. For example, use <code>yahoo.com</code> to block all yahoo.com websites.
+        </p>
+        <p>
+            Note that the extension takes a domain - with optional www - and matches the main domain with optional www as well as both http and https protocols.
+        </p>
+        <table>
+            <caption>Examples</caption>
+            <tr>
+                <th>Enter this</th>
+                <th>These get blocked</th>
+            </tr>
+            <tr>
+                <td><code>yahoo.com</code></td>
+                <td>
+                    <ul>
+                        <li><code>http://yahoo.com</code></li>
+                        <li><code>https://yahoo.com</code></li>
+                        <li><code>http://www.yahoo.com</code></li>
+                        <li><code>https://www.yahoo.com</code></li>
+                        <li><code>https://www.yahoo.com/some-article-here</code></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </details>
+
+    <template id="domain-row">
+        <div>
+            <input type="text" required value="" name="domains" pattern="[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}" title="Enter a valid domain like yahoo.com"> <a href="#" class="remove-row" title="Remove">✕</a>
+        </div>
+    </template>
+
+    <template id="domain-action-row">
+        <div>
+            <a href="#">add another</a>
+            <button type="submit">Save</button>
+        </div>
+    </template>
+
+    <options-form></options-form>
+
+    <script src="./options.js"></script>
+</body>
+
+</html>
