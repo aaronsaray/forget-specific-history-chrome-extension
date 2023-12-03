@@ -1,7 +1,5 @@
 /// <reference path="../node_modules/chrome-types/_all.d.ts"/>
 
-const domains = ['www.yahoo.com', 'slashdot.org'];
-
 function makeRegexFromDomain(domain) {
   // remove www if it exists
   let parsed = domain.replace(/^www\./, '');
@@ -24,14 +22,18 @@ function makeRegexFromDomain(domain) {
 /**
  * @param {chrome.history.HistoryItem} historyItem
  */
-function onVisitedHandler(historyItem) {
+async function onVisitedHandler(historyItem) {
   if (historyItem.url) {
-    if (
-      domains.find((domain) =>
-        new RegExp(makeRegexFromDomain(domain)).test(historyItem.url),
-      )
-    ) {
-      chrome.history.deleteUrl({ url: historyItem.url });
+    const { domains } = await chrome.storage.sync.get('domains');
+
+    if (Array.isArray(domains)) {
+      if (
+        domains.find((domain) =>
+          new RegExp(makeRegexFromDomain(domain)).test(historyItem.url),
+        )
+      ) {
+        chrome.history.deleteUrl({ url: historyItem.url });
+      }
     }
   }
 }
